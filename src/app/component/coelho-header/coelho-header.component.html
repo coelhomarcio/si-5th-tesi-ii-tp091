@@ -1,0 +1,89 @@
+<header class="mat-elevation-z4">
+	<mat-toolbar class="c-white">
+		<mat-toolbar-row class="p0 h104 bg-d-blue flex center-x">
+			<div class="px16 flex sb center-y gap8">
+				<div class="header-menu">
+					<button mat-mini-fab [matMenuTriggerFor]="navMenu" class="bg-blue c-white">
+						<mat-icon>{{ header.menuIcon }}</mat-icon>
+					</button>
+					<mat-menu class="m8 bg-blue" #navMenu="matMenu" xPosition="after" yPosition="below">
+						<a mat-menu-item *ngFor="let navListItem of header.navList" class="c-white"
+						   routerLink="{{ navListItem.link }}" routerLinkActive="active-menu-item">
+							<mat-icon class="c-white">{{ navListItem.icon }}</mat-icon>
+							<span class="fw700 ls3">{{ navListItem.label | uppercase }}</span>
+						</a>
+					</mat-menu>
+				</div>
+				<h1 class="fs26 fw900 ls3">{{ header.title }}</h1>
+				<div class="header-nav-list">
+					<mat-nav-list class="p0 flex gap8">
+						<a mat-list-item *ngFor="let navListItem of header.navList"
+						   class="br4 bg-blue fs16 fw700 c-white mat-elevation-z8"
+						   routerLink="{{ navListItem.link }}" routerLinkActive="active-nav-list-item">
+							<span class="flex center-y gap8">
+								<mat-icon class="w-i h-i fs26">{{ navListItem.icon }}</mat-icon>
+								<span>{{ navListItem.label | uppercase }}</span>
+							</span>
+						</a>
+					</mat-nav-list>
+				</div>
+			</div>
+		</mat-toolbar-row>
+		<mat-toolbar-row class="h80 p0 bg-blue flex center-x">
+			<div class="px16 flex end-x">
+
+				<mat-list class="p0 flex center-y gap8">
+					<mat-list-item class="br4 bg-d-blue c-white mat-elevation-z8">
+						<span class="flex-c gap4">
+							<span class="fs12 lh12 flex gap8">
+								<span>USD</span>
+								<mat-icon *ngIf="wallet.isEmpty(wallet.lastCurrency.upDown.USD)"
+								          class="h-i w-i fs20 lh12">{{ wallet.lastCurrency.upDown.USD }}</mat-icon>
+								<mat-icon *ngIf="wallet.isUSDUp(wallet.lastCurrency.upDown.USD)"
+								          class="h-i w-i fs20 lh12 trending_up">{{ wallet.lastCurrency.upDown.USD }}</mat-icon>
+								<mat-icon *ngIf="wallet.isUSDDown(wallet.lastCurrency.upDown.USD)"
+								          class="h-i w-i fs20 lh12 trending_down">{{ wallet.lastCurrency.upDown.USD }}</mat-icon>
+							</span>
+							<span class="fs14 lh16">
+								<span>{{ wallet.lastCurrency.USD.BRL | currency : "BRL" : "symbol" : ".2-2" : "pt" }}</span>
+							</span>
+						</span>
+					</mat-list-item>
+					<mat-list-item class="br4 bg-d-blue c-white mat-elevation-z8">
+						<span class="flex-c gap4">
+							<span class="fs12 lh12 flex gap8">
+								<span>EUR</span>
+								<mat-icon *ngIf="wallet.isEmpty(wallet.lastCurrency.upDown.EUR)"
+								          class="h-i w-i fs20 lh12">{{ wallet.lastCurrency.upDown.EUR }}</mat-icon>
+								<mat-icon *ngIf="wallet.isEURUp(wallet.lastCurrency.upDown.EUR)"
+								          class="h-i w-i fs20 lh12 trending_up">{{ wallet.lastCurrency.upDown.EUR }}</mat-icon>
+								<mat-icon *ngIf="wallet.isEURDown(wallet.lastCurrency.upDown.EUR)"
+								          class="h-i w-i fs20 lh12 trending_down">{{ wallet.lastCurrency.upDown.EUR }}</mat-icon>
+							</span>
+							<span class="fs14 lh16">
+								<span>{{ wallet.lastCurrency.EUR.BRL | currency : "BRL" : "symbol" : ".2-2" : "pt" }}</span>
+							</span>
+						</span>
+					</mat-list-item>
+					<mat-list-item class="br4 bg-d-blue c-white mat-elevation-z8">
+						<span class="flex-c gap4">
+							<span class="fs12 lh12 flex gap8">
+								<span>BTC</span>
+								<mat-icon *ngIf="wallet.isEmpty(wallet.lastCurrency.upDown.BTC)"
+								          class="h-i w-i fs20 lh12">{{ wallet.lastCurrency.upDown.BTC }}</mat-icon>
+								<mat-icon *ngIf="wallet.isBTCUp(wallet.lastCurrency.upDown.BTC)"
+								          class="h-i w-i fs20 lh12 trending_up">{{ wallet.lastCurrency.upDown.BTC }}</mat-icon>
+								<mat-icon *ngIf="wallet.isBTCDown(wallet.lastCurrency.upDown.BTC)"
+								          class="h-i w-i fs20 lh12 trending_down">{{ wallet.lastCurrency.upDown.BTC }}</mat-icon>
+							</span>
+							<span class="fs14 lh16">
+								<span>{{ wallet.lastCurrency.BTC.BRL | currency : "BRL" : "symbol" : ".2-2" : "pt" }}</span>
+							</span>
+						</span>
+					</mat-list-item>
+				</mat-list>
+
+			</div>
+		</mat-toolbar-row>
+	</mat-toolbar>
+</header>

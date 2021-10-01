@@ -1,94 +1,40 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use "~@angular/material" as mat;
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat.core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$wallet-btc-primary: mat.define-palette(mat.$indigo-palette);
-$wallet-btc-accent:  mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$wallet-btc-warn:    mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$wallet-btc-theme:   mat.define-light-theme((
-	color: (
-		primary: $wallet-btc-primary,
-		accent: $wallet-btc-accent,
-		warn: $wallet-btc-warn,
-	)
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($wallet-btc-theme);
-
-/* You can add global styles to this file, and also import other style files */
-
-$black:              #111111;
-$grey:               #888888;
-$l-grey:             #CFCFCF;
-$white:              #F9F9F9;
-$d-blue:             #03396C;
-$blue:               #005B96;
-$d-green:            #34A974;
-$green:              #47CE90;
-$l-green:            #A1E7C7;
-$w-green:            #ECFAF3;
-$d-red:              #BC4A4D;
-$red:                #F34D61;
-$l-red:              #E5919C;
-$w-red:              #FDEDEE;
+$black:          #111111;
+$grey:           #888888;
+$l-grey:         #CFCFCF;
+$white:          #F9F9F9;
+$d-blue:         #03396C;
+$blue:           #005B96;
+$d-green:        #34A974;
+$green:          #47CE90;
+$l-green:        #A1E7C7;
+$w-green:        #ECFAF3;
+$d-red:          #BC4A4D;
+$red:            #F34D61;
+$l-red:          #E5919C;
+$w-red:          #FDEDEE;
 
 * { box-sizing: border-box; }
 
 html,
 body { width: 100%; max-width: 100%; min-height: 100vh; }
 
-html { font-size: .625rem; scroll-behavior: smooth; background-color: $black; }
+html { background-color: $white; font-size: .625rem; scroll-behavior: smooth; }
 
-body { margin: 0; background-image: radial-gradient($white, $black); font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 header,
 main,
 footer,
 mat-toolbar-row > div { width: 100%; max-width: 100%; }
 
-header { height: 18.4rem; position: sticky; top: 0; z-index: 999; }
+header { height: 16rem; position: sticky; top: 0; z-index: 999; }
 
-main > section { width: 100%; height: 100%; min-height: calc(100vh - 34.4rem); padding: 1.6rem; }
+main { height: 100%; min-height: calc(100vh - 28rem); padding: 2.4rem; }
 
-footer > div { height: 16rem; padding: 1.6rem }
+footer { height: 12rem; background-color: #005B96; }
 
-.header-nav-list { display: none; }
-.active-menu-item > span { border-bottom: .1rem solid $white }
-.active-nav-list-item { border: .1rem solid $white; }
+.header-nav { display: none; }
 
-.paragraph { width: 100%; max-width: 56rem;
-	p { text-indent: 2.4rem;}
-}
-
-.table-div { > div { height: 29.6rem; overflow: auto; > table { width: 100%; } } }
-.trending_up { color: $green; }
-.trending_down { color: $red; }
-
-.hide { display: none; }
-
-.a-hover-ts { transition: transform 150ms ease-in-out; }
-.a-hover:hover .a-hover-tu { text-decoration: underline; }
-.a-hover:hover .a-hover-ts { transform: scale(1.2); }
-
-.w-i { width: inherit !important; }
-.w1 { width: .1rem !important; }
 .w10 { width: 10% !important; }
 .w20 { width: 20% !important; }
 .w30 { width: 30% !important; }
@@ -99,8 +45,6 @@ footer > div { height: 16rem; padding: 1.6rem }
 .w80 { width: 80% !important; }
 .w90 { width: 90% !important; }
 .w100 { width: 100% !important; }
-.h-i { height: inherit !important; }
-.h1 { height: .1rem !important; }
 .h8 { height: .8rem !important; }
 .h16 { height: 1.6rem !important; }
 .h24 { height: 2.4rem !important; }
@@ -113,9 +57,6 @@ footer > div { height: 16rem; padding: 1.6rem }
 .h80 { height: 8rem !important; }
 .h88 { height: 8.8rem !important; }
 .h96 { height: 9.6rem !important; }
-.h104 { height: 10.4rem !important; }
-.h112 { height: 11.2rem !important; }
-.h120 { height: 12rem !important; }
 .h100vh { height: 100vh !important; }
 .m0 { margin: 0 !important; }
 .m8 { margin: .8rem !important; }
@@ -181,7 +122,6 @@ footer > div { height: 16rem; padding: 1.6rem }
 .f-italic { font-style: italic !important; }
 .f-upper { text-transform: uppercase !important; }
 .f-under { text-decoration: underline !important; }
-.f-dec-n { text-decoration: none !important; }
 .fs8 { font-size: .8rem !important; }
 .fs9 { font-size: .9rem !important; }
 .fs10 { font-size: 1rem !important; }
@@ -229,9 +169,7 @@ footer > div { height: 16rem; padding: 1.6rem }
 .ls4 { letter-spacing: .4rem !important; }
 .ls5 { letter-spacing: .5rem !important; }
 .flex { display: flex !important; flex-direction: row !important; }
-.flex-i { display: inline-flex !important; flex-direction: row !important; }
 .flex-c { display: flex !important; flex-direction: column !important; }
-.flex-ic { display: inline-flex !important; flex-direction: column !important; }
 .flex-w { display: flex !important; flex-wrap: wrap !important; }
 .flex-wc { display: flex !important; flex-wrap: wrap !important; flex-direction: column !important; }
 .center { justify-content: center !important; align-items: center !important; }
@@ -243,17 +181,14 @@ footer > div { height: 16rem; padding: 1.6rem }
 .sb { justify-content: space-between !important; }
 .sa { justify-content: space-around !important; }
 .se { justify-content: space-evenly !important; }
-.start { justify-content: flex-start !important; align-items: flex-start !important; }
 .start-x { justify-content: flex-start !important; }
 .start-y { align-items: flex-start !important; }
-.end { justify-content: flex-end !important; align-items: flex-end !important; }
 .end-x { justify-content: flex-end !important; }
 .end-y { align-items: flex-end !important; }
 .start-sx { justify-self: flex-start !important; }
 .start-sy { align-self: flex-start !important; }
 .end-sx { justify-self: flex-end !important; }
 .end-sy { align-self: flex-end !important; }
-.gap2 { grid-gap: .2rem !important; }
 .gap4 { grid-gap: .4rem !important; }
 .gap8 { grid-gap: .8rem !important; }
 .gap16 { grid-gap: 1.6rem !important; }
@@ -262,9 +197,9 @@ footer > div { height: 16rem; padding: 1.6rem }
 .gap40 { grid-gap: 4rem !important; }
 
 @media (min-width: 768px) {
-	mat-toolbar-row > div,
-	main > section,
-	footer > div { width: 80%; }
 	.header-menu { display: none; }
-	.header-nav-list { display: block; }
+	.header-nav { display: block; }
+	mat-toolbar-row > div,
+    main,
+    footer { width: 80%; }
 }

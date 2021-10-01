@@ -1,0 +1,23 @@
+<footer class="bg-d-blue c-white flex center-x">
+	<div class="flex-c center-y sb">
+		<p class="m0 flex-c gap2">
+			<small>{{ footer.text }}</small>
+			<span>{{ footer.dev.name }}</span>
+			<span class="flex sb">
+				<small>{{ footer.dev.RA }}</small>
+				<a href="{{ footer.dev.gitHub.link }}" target="_blank"
+				   class="c-l-red f-dec-n flex-i gap4 a-hover">
+					<span class="a-hover-tu">{{ footer.dev.gitHub.label }}</span>
+					<mat-icon class="w-i h-i fs16 a-hover-ts">{{ footer.icon }}</mat-icon>
+				</a>
+			</span>
+		</p>
+		<p class="m0">
+			<a href="{{ footer.coinDesk.link }}" target="_blank"
+			   class="c-l-red f-dec-n flex-i gap4 a-hover">
+				<span class="a-hover-tu">{{ footer.coinDesk.label }}</span>
+				<mat-icon class="w-i h-i fs16 a-hover-ts">{{ footer.icon }}</mat-icon>
+			</a>
+		</p>
+	</div>
+</footer>

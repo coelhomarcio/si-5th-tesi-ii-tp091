@@ -1,0 +1,99 @@
+<main class="flex center-x">
+	<section class="bg-white c-black flex-c center-y">
+		<div class="paragraph">
+			<h2>Carteira virtual Bitcoin</h2>
+		</div>
+		<mat-divider class="w100"></mat-divider>
+		<div class="py16 paragraph">
+			<h3>Saldo</h3>
+			<div class="flex-c center-y gap16">
+				<span class="fs20 fw600">{{ wallet.BTCBalance | currency : "BTC" : "code" : ".8-8" : "pt" }}</span>
+				<span class="fs20 fw600">{{ wallet.BTCBalance * wallet.lastCurrency.BTC.BRL | currency : "BRL" : "symbol" : ".2-2" : "pt" }}</span>
+			</div>
+		</div>
+		<mat-divider class="w100 py8"></mat-divider>
+		<div class="paragraph">
+			<h3>Movimentar carteira</h3>
+			<div [ngClass]="isInput ? 'hide' : ''">
+				<div class="py16 flex center gap16">
+					<button (click)="showInput(true)" mat-raised-button
+					        class="bg-blue c-white">
+						<span class="fw600 ls2">COMPRAR</span>
+					</button>
+					<button (click)="showInput(false)" mat-raised-button
+					        class="bg-blue c-white">
+						<span class="fw600 ls2">VENDER</span>
+					</button>
+				</div>
+			</div>
+			<div [ngClass]="!isInput ? 'hide' : ''">
+				<div class="flex center gap16">
+					<form #form="ngForm" (ngSubmit)="submitForm()">
+						<mat-form-field hideRequiredMarker class="w100">
+							<mat-label>Valor</mat-label>
+							<input matInput [(ngModel)]="valueModel" name="valueModel"
+							       type="number" min="0.01" required>
+							<span matPrefix>R$&nbsp;</span>
+							<mat-error>Valor mínimo de R$ 0,01</mat-error>
+						</mat-form-field>
+						<div class="py16 flex gap16">
+							<button type="submit" mat-raised-button
+							        class="bg-d-green c-white">
+								<span class="fw600 ls2">
+									<span *ngIf="isDeposit">COMPRAR</span>
+									<span *ngIf="!isDeposit">VENDER</span>
+								</span>
+							</button>
+							<button (click)="hideInput()" mat-raised-button
+							        class="bg-d-red c-white">
+								<span class="fw600 ls2">CANCELAR</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div *ngIf="isMessage" class="fs20 fw600 flex center-x">
+				<div *ngIf="!isError">
+					<span *ngIf="isDeposit">Compra realizada!</span>
+					<span *ngIf="!isDeposit">Venda realizada!</span>
+				</div>
+				<div *ngIf="isError">
+					<span>Saldo insuficiente!</span>
+				</div>
+			</div>
+		</div>
+
+		<!--		<div>-->
+		<!--		<div *ngIf="!isInput" class="w100 flex center">-->
+		<!--			<div class="flex se center-y gap32">-->
+		<!--				<button (click)="showInput(true)" mat-raised-button-->
+		<!--				        class="bg-d-blue c-white">-->
+		<!--					<span class="fw600 ls3">COMPRAR</span>-->
+		<!--				</button>-->
+		<!--				<button (click)="showInput(false)" mat-raised-button-->
+		<!--				        class="bg-d-blue c-white">-->
+		<!--					<span class="fw600 ls3">VENDER</span>-->
+		<!--				</button>-->
+		<!--			</div>-->
+		<!--		</div>-->
+		<!--			<div *ngIf="isInput">-->
+		<!--				<form (ngSubmit)="submitForm()">-->
+		<!--					<mat-form-field>-->
+		<!--						<mat-label>Valor</mat-label>-->
+		<!--						<input matInput [(ngModel)]="valueModel" name="valueModel"-->
+		<!--						       type="number">-->
+		<!--						<span matPrefix>R$&nbsp;</span>-->
+		<!--					</mat-form-field>-->
+		<!--					<button type="submit" mat-raised-button>-->
+		<!--						<span *ngIf="isDeposit">Comprar</span>-->
+		<!--						<span *ngIf="!isDeposit">Vender</span>-->
+		<!--					</button>-->
+		<!--				</form>-->
+		<!--			</div>-->
+		<!--			<div *ngIf="isMessage">-->
+		<!--				<p *ngIf="isDeposit">Compra realizada!</p>-->
+		<!--				<p *ngIf="!isDeposit">Venda realizada!</p>-->
+		<!--			</div>-->
+		<!--		</div>-->
+	</section>
+</main>
