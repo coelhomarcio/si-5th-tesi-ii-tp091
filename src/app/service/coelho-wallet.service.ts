@@ -2,26 +2,8 @@ import { HttpClient }         from "@angular/common/http";
 import { Injectable }         from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
 
-interface API {
-	time: { updatedISO: string };
-	bpi: {
-		BRL: { rate_float: number };
-		USD: { rate_float: number };
-		EUR: { rate_float: number };
-	};
-}
-
-export interface Currency {
-	timeISO: string;
-	upDown: {
-		USD: string,
-		EUR: string,
-		BTC: string
-	};
-	BTC: { BRL: number; USD: number; EUR: number; };
-	USD: { BRL: number; };
-	EUR: { BRL: number; };
-}
+import { API }      from "../interface/api";
+import { Currency } from "../interface/currency";
 
 @Injectable({
 	providedIn: "root"
