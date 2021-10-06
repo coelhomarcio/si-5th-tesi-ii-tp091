@@ -21,11 +21,11 @@
 			<div [ngClass]="isInput ? 'hide' : ''">
 				<div class="py16 flex center gap16">
 					<button (click)="showInput(true)" mat-raised-button
-					        class="bg-blue c-white">
+					        class="bg-blue c-white mat-elevation-z8">
 						<span class="fw600 ls2">COMPRAR</span>
 					</button>
 					<button (click)="showInput(false)" mat-raised-button
-					        class="bg-blue c-white">
+					        class="bg-blue c-white mat-elevation-z8">
 						<span class="fw600 ls2">VENDER</span>
 					</button>
 				</div>
@@ -42,14 +42,14 @@
 						</mat-form-field>
 						<div class="py16 flex gap16">
 							<button type="submit" mat-raised-button
-							        class="bg-d-green c-white">
+							        class="bg-d-green c-white mat-elevation-z8">
 								<span class="fw600 ls2">
 									<span *ngIf="isDeposit">COMPRAR</span>
 									<span *ngIf="!isDeposit">VENDER</span>
 								</span>
 							</button>
 							<button (click)="hideInput()" mat-raised-button
-							        class="bg-d-red c-white">
+							        class="bg-d-red c-white mat-elevation-z8">
 								<span class="fw600 ls2">CANCELAR</span>
 							</button>
 						</div>
