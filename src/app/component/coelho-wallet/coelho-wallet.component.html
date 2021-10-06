@@ -6,9 +6,13 @@
 		<mat-divider class="w100"></mat-divider>
 		<div class="py16 paragraph">
 			<h3>Saldo</h3>
-			<div class="flex-c center-y gap16">
+			<div class="flex-c center-y gap32">
 				<span class="fs20 fw600">{{ wallet.BTCBalance | currency : "BTC" : "code" : ".8-8" : "pt" }}</span>
-				<span class="fs20 fw600">{{ wallet.BTCBalance * wallet.lastCurrency.BTC.BRL | currency : "BRL" : "symbol" : ".2-2" : "pt" }}</span>
+				<div class="flex-w center gap16">
+					<span class="fs20 fw600">{{ wallet.BTCBalance * wallet.lastCurrency.BTC.BRL | currency : "BRL" : "symbol" : ".2-2" : "pt" }}</span>
+					<span class="fs20 fw600">{{ wallet.BTCBalance * wallet.lastCurrency.BTC.USD | currency : "USD" : "symbol" : ".2-2" : "pt" }}</span>
+					<span class="fs20 fw600">{{ wallet.BTCBalance * wallet.lastCurrency.BTC.EUR | currency : "EUR" : "symbol" : ".2-2" : "pt" }}</span>
+				</div>
 			</div>
 		</div>
 		<mat-divider class="w100 py8"></mat-divider>
@@ -62,38 +66,5 @@
 				</div>
 			</div>
 		</div>
-
-		<!--		<div>-->
-		<!--		<div *ngIf="!isInput" class="w100 flex center">-->
-		<!--			<div class="flex se center-y gap32">-->
-		<!--				<button (click)="showInput(true)" mat-raised-button-->
-		<!--				        class="bg-d-blue c-white">-->
-		<!--					<span class="fw600 ls3">COMPRAR</span>-->
-		<!--				</button>-->
-		<!--				<button (click)="showInput(false)" mat-raised-button-->
-		<!--				        class="bg-d-blue c-white">-->
-		<!--					<span class="fw600 ls3">VENDER</span>-->
-		<!--				</button>-->
-		<!--			</div>-->
-		<!--		</div>-->
-		<!--			<div *ngIf="isInput">-->
-		<!--				<form (ngSubmit)="submitForm()">-->
-		<!--					<mat-form-field>-->
-		<!--						<mat-label>Valor</mat-label>-->
-		<!--						<input matInput [(ngModel)]="valueModel" name="valueModel"-->
-		<!--						       type="number">-->
-		<!--						<span matPrefix>R$&nbsp;</span>-->
-		<!--					</mat-form-field>-->
-		<!--					<button type="submit" mat-raised-button>-->
-		<!--						<span *ngIf="isDeposit">Comprar</span>-->
-		<!--						<span *ngIf="!isDeposit">Vender</span>-->
-		<!--					</button>-->
-		<!--				</form>-->
-		<!--			</div>-->
-		<!--			<div *ngIf="isMessage">-->
-		<!--				<p *ngIf="isDeposit">Compra realizada!</p>-->
-		<!--				<p *ngIf="!isDeposit">Venda realizada!</p>-->
-		<!--			</div>-->
-		<!--		</div>-->
 	</section>
 </main>

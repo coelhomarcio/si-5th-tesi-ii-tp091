@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { NgForm }                       from "@angular/forms";
+import { Component, ViewChild } from "@angular/core";
+import { NgForm }               from "@angular/forms";
 
 import { CoelhoWalletService } from "../../service/coelho-wallet.service";
 
@@ -7,7 +7,7 @@ import { CoelhoWalletService } from "../../service/coelho-wallet.service";
 	selector:    "app-coelho-wallet",
 	templateUrl: "./coelho-wallet.component.html"
 })
-export class CoelhoWalletComponent implements OnInit {
+export class CoelhoWalletComponent {
 	private _isDeposit = false;
 	private _isInput = false;
 	private _isMessage = false;
@@ -62,8 +62,5 @@ export class CoelhoWalletComponent implements OnInit {
 				setTimeout(() => this._isMessage = false, 5000);
 			}
 		}
-	}
-
-	ngOnInit(): void {
 	}
 }
