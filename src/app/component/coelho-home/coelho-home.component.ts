@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 import { Home } from "../../interface/home";
 
@@ -6,7 +6,7 @@ import { Home } from "../../interface/home";
 	selector:    "app-coelho-home",
 	templateUrl: "./coelho-home.component.html"
 })
-export class CoelhoHomeComponent implements OnInit {
+export class CoelhoHomeComponent {
 	private readonly _home: Home = {
 		subTitle1: "Bitcoin",
 		text1:     "Bitcoin é a primeira criptomoeda descentralizada do " +
@@ -23,12 +23,7 @@ export class CoelhoHomeComponent implements OnInit {
 		           "depósito e saque."
 	};
 
-	constructor() { }
-
 	public get home(): Home {
 		return this._home;
-	}
-
-	ngOnInit(): void {
 	}
 }
