@@ -1,6 +1,6 @@
-import { HttpClient }         from "@angular/common/http";
 import { Injectable }         from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
+import { HttpClient }         from "@angular/common/http";
 
 import { API }      from "../interface/api";
 import { Currency } from "../interface/currency";
