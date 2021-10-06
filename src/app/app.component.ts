@@ -8,9 +8,9 @@ import { CoelhoWalletService }   from "./service/coelho-wallet.service";
 @Component({
 	selector: "app-root",
 	template: `
-		          <app-coelho-header [header]="this.header"></app-coelho-header>
+		          <app-coelho-header [header]="header"></app-coelho-header>
 		          <router-outlet></router-outlet>
-		          <app-coelho-footer [footer]="this.footer"></app-coelho-footer>
+		          <app-coelho-footer [footer]="footer"></app-coelho-footer>
 	          `
 })
 export class AppComponent implements OnInit {
@@ -63,7 +63,8 @@ export class AppComponent implements OnInit {
 	constructor(
 		private wallet: CoelhoWalletService,
 		private interval: CoelhoIntervalService
-	) {}
+	) {
+	}
 
 	ngOnInit(): void {
 		this.wallet.updateCurrencies().then();
