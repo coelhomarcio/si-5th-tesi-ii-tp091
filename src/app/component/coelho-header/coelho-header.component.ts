@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 
-import { Header }              from "../../interface/header";
+import { Header } from "../../interface/header";
+
 import { CoelhoWalletService } from "../../service/coelho-wallet.service";
 
 @Component({
