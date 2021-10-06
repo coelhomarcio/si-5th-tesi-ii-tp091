@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Header }                from "./interface/header";
-import { Footer }                from "./interface/footer";
+import { Header } from "./interface/header";
+import { Footer } from "./interface/footer";
+
 import { CoelhoIntervalService } from "./service/coelho-interval.service";
 import { CoelhoWalletService }   from "./service/coelho-wallet.service";
 
