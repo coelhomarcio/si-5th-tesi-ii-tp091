@@ -10,59 +10,59 @@
 					<div style="height: 29.6rem">
 						<table mat-table [dataSource]="tableData()">
 							<ng-container matColumnDef="timeISO">
-								<th class="px8 fs10" mat-header-cell *matHeaderCellDef>Data e hora</th>
-								<td class="px8 fs10" mat-cell *matCellDef="let data">
-							<span class="flex center">
-								<span class="flex-c end-y">
-									<span>{{data.timeISO | date : "dd/MM/yyyy" : "" : "pt" }}</span>
-									<span>{{data.timeISO | date : "HH:mm" : "" : "pt" }}</span>
-								</span>
-							</span>
+								<th class="px8" mat-header-cell *matHeaderCellDef>Data e hora</th>
+								<td class="px8 c-black fs10" mat-cell *matCellDef="let data">
+									<span class="flex center">
+										<span class="flex-c end-y">
+											<span>{{data.timeISO | date : "dd/MM/yyyy" : "" : "pt" }}</span>
+											<span>{{data.timeISO | date : "HH:mm" : "" : "pt" }}</span>
+										</span>
+									</span>
 								</td>
 							</ng-container>
 							<ng-container matColumnDef="USD.BRL">
-								<th class="px8 fs10" mat-header-cell *matHeaderCellDef>Dólar</th>
-								<td class="px8 fs10" mat-cell *matCellDef="let data">
-							<span class="flex gap4">
-								<span [matTooltip]="data.USD.BRL"
-								      matTooltipPosition="above">{{data.USD.BRL | currency : "BRL" : "symbol" : ".4-4" : "pt" }}</span>
-								<mat-icon *ngIf="wallet.isEmpty(data.upDown.USD)"
-								          class="h-i w-i fs20 lh12">{{ data.upDown.USD }}</mat-icon>
-								<mat-icon *ngIf="wallet.isUSDUp(data.upDown.USD)"
-								          class="h-i w-i fs20 lh12 trending_up">{{ data.upDown.USD }}</mat-icon>
-								<mat-icon *ngIf="wallet.isUSDDown(data.upDown.USD)"
-								          class="h-i w-i fs20 lh12 trending_down">{{ data.upDown.USD }}</mat-icon>
-							</span>
+								<th class="px8" mat-header-cell *matHeaderCellDef>Dólar</th>
+								<td class="px8 c-black fs10" mat-cell *matCellDef="let data">
+									<span class="flex gap4">
+										<span [matTooltip]="data.USD.BRL"
+										      matTooltipPosition="above">{{data.USD.BRL | currency : "BRL" : "symbol" : ".4-4" : "pt" }}</span>
+										<mat-icon *ngIf="wallet.isEmpty(data.upDown.USD)"
+										          class="h-i w-i fs20">{{ data.upDown.USD }}</mat-icon>
+										<mat-icon *ngIf="wallet.isUSDUp(data.upDown.USD)"
+										          class="h-i w-i fs20 trending_up">{{ data.upDown.USD }}</mat-icon>
+										<mat-icon *ngIf="wallet.isUSDDown(data.upDown.USD)"
+										          class="h-i w-i fs20 trending_down">{{ data.upDown.USD }}</mat-icon>
+									</span>
 								</td>
 							</ng-container>
 							<ng-container matColumnDef="EUR.BRL">
-								<th class="px8 fs10" mat-header-cell *matHeaderCellDef>Euro</th>
-								<td class="px8 fs10" mat-cell *matCellDef="let data">
-							<span class="flex gap4">
-								<span [matTooltip]="data.EUR.BRL"
-								      matTooltipPosition="above">{{data.EUR.BRL | currency : "BRL" : "symbol" : ".4-4" : "pt" }}</span>
-								<mat-icon *ngIf="wallet.isEmpty(data.upDown.EUR)"
-								          class="h-i w-i fs20 lh12">{{ data.upDown.EUR }}</mat-icon>
-								<mat-icon *ngIf="wallet.isEURUp(data.upDown.EUR)"
-								          class="h-i w-i fs20 lh12 trending_up">{{ data.upDown.EUR }}</mat-icon>
-								<mat-icon *ngIf="wallet.isEURDown(data.upDown.EUR)"
-								          class="h-i w-i fs20 lh12 trending_down">{{ data.upDown.EUR }}</mat-icon>
-							</span>
+								<th class="px8" mat-header-cell *matHeaderCellDef>Euro</th>
+								<td class="px8 c-black fs10" mat-cell *matCellDef="let data">
+									<span class="flex gap4">
+										<span [matTooltip]="data.EUR.BRL"
+										      matTooltipPosition="above">{{data.EUR.BRL | currency : "BRL" : "symbol" : ".4-4" : "pt" }}</span>
+										<mat-icon *ngIf="wallet.isEmpty(data.upDown.EUR)"
+										          class="h-i w-i fs20">{{ data.upDown.EUR }}</mat-icon>
+										<mat-icon *ngIf="wallet.isEURUp(data.upDown.EUR)"
+										          class="h-i w-i fs20 trending_up">{{ data.upDown.EUR }}</mat-icon>
+										<mat-icon *ngIf="wallet.isEURDown(data.upDown.EUR)"
+										          class="h-i w-i fs20 trending_down">{{ data.upDown.EUR }}</mat-icon>
+									</span>
 								</td>
 							</ng-container>
 							<ng-container matColumnDef="BTC.BRL">
-								<th class="px8 fs10" mat-header-cell *matHeaderCellDef>Bitcoin</th>
-								<td class="px8 fs10" mat-cell *matCellDef="let data">
-							<span class="flex gap4">
-								<span [matTooltip]="data.BTC.BRL"
-								      matTooltipPosition="above">{{data.BTC.BRL | currency : "BRL" : "symbol" : ".4-4" : "pt" }}</span>
-								<mat-icon *ngIf="wallet.isEmpty(data.upDown.BTC)"
-								          class="h-i w-i fs20 lh12">{{ data.upDown.BTC }}</mat-icon>
-								<mat-icon *ngIf="wallet.isBTCUp(data.upDown.BTC)"
-								          class="h-i w-i fs20 lh12 trending_up">{{ data.upDown.BTC }}</mat-icon>
-								<mat-icon *ngIf="wallet.isBTCDown(data.upDown.BTC)"
-								          class="h-i w-i fs20 lh12 trending_down">{{ data.upDown.BTC }}</mat-icon>
-							</span>
+								<th class="px8" mat-header-cell *matHeaderCellDef>Bitcoin</th>
+								<td class="px8 c-black fs10" mat-cell *matCellDef="let data">
+									<span class="flex gap4">
+										<span [matTooltip]="data.BTC.BRL"
+										      matTooltipPosition="above">{{data.BTC.BRL | currency : "BRL" : "symbol" : ".4-4" : "pt" }}</span>
+										<mat-icon *ngIf="wallet.isEmpty(data.upDown.BTC)"
+										          class="h-i w-i fs20">{{ data.upDown.BTC }}</mat-icon>
+										<mat-icon *ngIf="wallet.isBTCUp(data.upDown.BTC)"
+										          class="h-i w-i fs20 trending_up">{{ data.upDown.BTC }}</mat-icon>
+										<mat-icon *ngIf="wallet.isBTCDown(data.upDown.BTC)"
+										          class="h-i w-i fs20 trending_down">{{ data.upDown.BTC }}</mat-icon>
+									</span>
 								</td>
 							</ng-container>
 							<tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
